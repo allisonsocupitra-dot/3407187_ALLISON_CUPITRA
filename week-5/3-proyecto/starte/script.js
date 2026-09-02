@@ -15,90 +15,92 @@
 // SECCIÓN 1: Datos del elemento de tu dominio
 // ============================================
 
-// TODO: Define al menos 5 variables con datos de un elemento de tu dominio.
-// Ejemplos orientativos:
-// - Un libro, medicamento, miembro, estudiante, producto, etc.
-// - Incluye: nombre, estado, valor numérico, tipo (string), y alguna propiedad opcional
-
-const elementName = null;           // TODO: nombre del elemento (string)
-const elementStatus = null;         // TODO: estado actual (string: "active", "inactive", etc.)
-const elementValue = null;          // TODO: valor numérico para clasificar (ocupación, stock, puntaje…)
-const elementType = null;           // TODO: tipo o categoría (string)
-const elementInfo = null;           // TODO: objeto con información adicional opcional (puede ser null)
+const elementName = "Proyecto Torres del Lago";
+const elementStatus = "active";
+const elementValue = 85;
+const elementType = "Residencial";
+const goalAchieved = false;
+const totalProperty = 1_000_000_000;
+const localInformation = "Melledin, Antioquia";
+const elementInfo = null;
+const projectManager = null;
 
 // ============================================
 // SECCIÓN 2: Clasificación con if / else if / else
 // ============================================
 
-// TODO: Clasifica el elemento en al menos 3 niveles según elementValue.
-// Ejemplo de estructura:
-// let classification;
-// if (elementValue >= ...) {
-//   classification = "...";
-// } else if (elementValue >= ...) {
-//   classification = "...";
-// } else {
-//   classification = "...";
-// }
+let classification;
+if (elementValue >= 70) {
+  classification = "Alto";
+} else if (elementValue >= 40) {
+  classification = "Medio";
+} else {
+  classification = "Bajo";
+}
 
-let classification = "Sin clasificar"; // TODO: implementar if/else if/else
+let projectValue;
+if (totalProperty >= 50_000_000_000) {
+  projectValue = "alto valor";
+} else if (totalProperty >= 20_000_000_000) {
+  projectValue = "valor medio";
+} else {
+  projectValue = "bajo valor";
+}
 
 // ============================================
 // SECCIÓN 3: Estado binario con operador ternario
 // ============================================
 
-// TODO: Usa el ternario para determinar un estado de dos opciones.
-// Ejemplo: const statusLabel = elementStatus === "active" ? "Activo" : "Inactivo";
-
-const statusLabel = ""; // TODO: implementar con ternario
+const statusLabel = elementStatus === "active" ? "Activo" : "Inactivo";
+let goalStatus = goalAchieved ? "Objetivo alcanzado" : "Objetivo no alcanzado";
 
 // ============================================
 // SECCIÓN 4: Tipo con switch
 // ============================================
 
-// TODO: Usa switch sobre elementType para asignar una etiqueta.
-// Ejemplo:
-// switch (elementType) {
-//   case "typeA": typeLabel = "..."; break;
-//   case "typeB": typeLabel = "..."; break;
-//   default: typeLabel = "Tipo desconocido";
-// }
-
-let typeLabel = "Sin tipo"; // TODO: implementar con switch
+let typeLabel = "Sin tipo";
+switch (elementType) {
+   case "Residencial": typeLabel = "Proyecto Residencial";
+   break;
+   case "Comercial": typeLabel = "Proyecto Comercial";
+   break;
+   case "Turístico": typeLabel = "Proyecto Turístico";
+   break;
+   default: typeLabel = "Tipo desconocido";
+}
 
 // ============================================
 // SECCIÓN 5: Valor por defecto con ??
 // ============================================
 
-// TODO: Usa ?? para obtener un valor de fallback cuando sea null o undefined.
-// Ejemplo: const displayName = elementName ?? "Sin nombre";
-
-const displayName = "";      // TODO: elementName ?? "Sin nombre"
-const infoDetail = "";       // TODO: elementInfo?.detail ?? "Sin información adicional"
+const displayName = projectManager ?? "Sin nombre";
+const infoDetail = elementInfo?.detail ?? "Sin información adicional";
+const status = goalAchieved ?? true;
 
 // ============================================
 // SECCIÓN 6: Acceso seguro con ?.
 // ============================================
 
-// TODO: Accede de forma segura a una propiedad de elementInfo.
-// Ejemplo: const location = elementInfo?.location ?? "Ubicación no especificada";
-
-const safeProperty = ""; // TODO: elementInfo?.tuPropiedad ?? "valor por defecto"
+const safeProperty = elementInfo?.localInformation ?? "Ubicación no especificada";
+const safeCity = elementInfo?.ciudad ?? "Ciudad no especificada";
 
 // ============================================
 // SECCIÓN 7: Ficha de salida
 // ============================================
 
-// TODO: Muestra la ficha en consola con template literals (sin concatenación +)
-// Incluye todos los resultados de las secciones anteriores
-
+console.log("=".repeat(40));
+console.log("PLATAFORMA CROWFUNDING INMOBILIARIO");
 console.log("=".repeat(40));
 console.log("FICHA DE CLASIFICACIÓN");
-console.log("=".repeat(40));
-// TODO: console.log(`Nombre: ${displayName}`);
-// TODO: console.log(`Estado: ${statusLabel}`);
-// TODO: console.log(`Clasificación: ${classification}`);
-// TODO: console.log(`Tipo: ${typeLabel}`);
-// TODO: console.log(`Detalle: ${infoDetail}`);
-// TODO: console.log(`Propiedad adicional: ${safeProperty}`);
-console.log("=".repeat(40));
+console.log("-".repeat(40));
+console.log(`Nombre de la campaña: ${elementName}`);
+console.log(`Clasificación: ${classification}`);
+console.log(`Valor del proyecto: ${projectValue}`);
+console.log(`Estado: ${statusLabel}`);
+console.log(`Objetivo: ${goalStatus}`);
+console.log(`Tipo: ${typeLabel}`);
+console.log(`Detalle: ${infoDetail}`);
+console.log(`Ciudad: ${safeCity}`);
+console.log(`Información adicional: ${safeProperty}`);
+console.log(`Gerente del proyecto: ${displayName}`);
+console.log("-".repeat(40));
